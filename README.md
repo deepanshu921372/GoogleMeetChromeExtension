@@ -1,65 +1,30 @@
-# Google Meet Quick Start - Implementation Guide
+Auto Google Meet Link Generator – Chrome Extension
 
-This guide will help you implement the Google Meet Quick Start extension with a single logo file, as requested.
+This Chrome Extension allows you to start a new Google Meet with a single click and automatically copies the meeting link to your clipboard — perfect for quick virtual meetings, remote work, or online collaboration!
 
-## Creating the Logo
+🚀 Features
+✅ Instantly starts a new Google Meet
 
-1. First, generate a single logo file using the provided script. The script uses the Node.js Canvas library to create a logo similar to the one shown in your screenshot:
+📋 Automatically copies the meeting link to clipboard
 
-```bash
-# Install the canvas library if needed
-npm install canvas
+⚡ Lightweight, fast, and simple
 
-# Run the script
-node create-logo.js
-```
+🔒 No data tracking — privacy-first design
 
-This will generate a single `logo.png` file in the root directory of your extension.
 
-## Extension Files Structure
+🛠️ How to Use (Manual Installation)
+1. Download ZIP of this repository or clone it,
+2. Install dependencies - npm i
+3. Build the extension (if you have a build process) or proceed directly if it's ready.
+4. Open Google Chrome and go to chrome://extensions/.
+5. Enable Developer Mode (top-right corner).
+6. Click "Load unpacked" and select the folder where you extracted the ZIP or cloned the repo.
+7. The extension is now added — click the icon to launch a new Google Meet and automatically copy the link!
 
-Your extension should have the following file structure:
 
-```
-meet-quick-start/
-├── logo.png                # Single logo file for all icon sizes
-├── manifest.json           # Updated manifest using single logo
-├── background.js           # Background script
-├── content.js              # Content script to turn off camera
-├── clipboard.html          # HTML file for clipboard functionality
-└── clipboard.js            # JavaScript for clipboard operations
-```
+💡 Notes
+Make sure you're signed in to your Google account before using the extension.
 
-## Key Changes
+The copied link can be directly pasted into emails, chats, or calendars.
 
-1. The manifest has been updated to use a single logo file:
-   - Changed all icon references to point to just `logo.png`
-   - Simplified the manifest to use the same logo everywhere
 
-2. The background script focuses solely on:
-   - Opening new Google Meet tabs when the extension icon is clicked
-   - Capturing the meeting URL once it's created
-   - Copying the URL to clipboard
-
-3. No popup implementation - just direct click functionality as requested
-
-## Testing the Extension
-
-1. Open Chrome and navigate to `chrome://extensions/`
-2. Enable "Developer mode"
-3. Click "Load unpacked" and select your extension folder
-4. Click the extension icon - it should:
-   - Open a new Google Meet tab
-   - Automatically copy the meeting link once the meeting is created
-   - Turn off the camera (if permissions allow)
-
-## Troubleshooting
-
-If the logo doesn't appear:
-- Make sure the logo.png file is in the root directory
-- Verify the file is properly referenced in manifest.json
-- Try reloading the extension in Chrome
-
-If the extension doesn't work:
-- Check the Chrome developer console for any errors
-- Ensure all permissions are granted in the manifest
